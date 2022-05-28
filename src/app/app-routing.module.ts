@@ -6,22 +6,30 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { Grafica1Component } from './pages/grafica1/grafica1.component';
 import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
 import { ProgressComponent } from './pages/progress/progress.component';
+import { PagesComponent } from './pages/pages.component';
 
 
 const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'login', component: LoginComponent },
+  {
+    path: '', 
+    component: PagesComponent,
+    children:[
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'grafica1', component: Grafica1Component },
+      { path: 'progress', component: ProgressComponent },
+      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+    ]
+},
+  
   { path: 'register', component: RegisterComponent },
-  { path: 'progress', component: ProgressComponent },
-  { path: 'grafica1', component: Grafica1Component },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: NopagefoundComponent },
 
 ];
 
 
 @NgModule({
-  declarations: [],
+
   imports: [RouterModule.forRoot(routes)]
 })
 export class AppRoutingModule { }
