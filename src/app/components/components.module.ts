@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IngrementadorComponent } from './ingrementador/ingrementador.component';
+import { IngrementadorComponent } from './incrementador/ingrementador.component';
 import { FormsModule } from '@angular/forms';
 
 
